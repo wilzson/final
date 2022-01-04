@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/tools/tools",
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "实验室管理系统",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icon/文件.png",
+        "selectedIconPath": "icon/right.png"
+      },
+      {
+        "pagePath": "pages/tools/tools",
+        "text": "工具",
+        "iconPath": "icon/编辑.png",
+        "selectedIconPath": "icon/right.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "icon/mine.png",
+        "selectedIconPath": "icon/right.png"
+      }
+    ],
+    "selectedColor": "#0094ff"  
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
