@@ -1,0 +1,33 @@
+<!-- 工具栏内容 -->
+<view class="cart_content">
+  <view class="cart_title">收藏夹</view>
+  <view class="cart_main">
+  <!-- 当cart长度不为0的时候 -->
+    <block wx:if="{{collect.length!==0}}">
+      <view class="cart_item"
+      wx:for="{{collect}}"
+      wx:key="id"
+      >
+    <!-- 图片 -->
+    <navigator class="cart_img_wrap" url="/pages/goods_detail/index?id={{item.id}}">
+      <image mode="widthFix" src="{{item.imageurl}}"></image>
+    </navigator>
+    <!-- 详细信息 -->
+    <view class="cart_info_wrap">
+      <view class="good_name">{{item.name}}</view>
+      <view class="good_price_wrap">
+        <view class="good_price">{{item.description}}</view>
+        <!-- <view class="cart_num_tool">
+          <view class="num_edit"></view>
+          <view class="good_num">1</view>
+          <view class="num_edit"></view>
+        </view> -->
+      </view>
+    </view>
+    </view>
+    </block>
+    <block wx:else>
+      <image mode="widthFix" src="https://s3.bmp.ovh/imgs/2022/02/f99dc20bae289329.gif"></image>
+    </block>
+  </view>
+</view>

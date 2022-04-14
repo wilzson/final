@@ -1,39 +1,47 @@
 {
   "pages": [
-    "pages/tools/tools",
     "pages/index/index",
+    "pages/tool/tool",
     "pages/mine/mine",
-    "pages/logs/logs"
+    "pages/search/search",
+    "pages/login/login",
+    "pages/goods_detail/index",
+    "pages/cart/cart",
+    "pages/test/test",
+    "pages/collect/collect"
   ],
   "window": {
-    "backgroundTextStyle": "black",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#eb4450",
     "navigationBarTitleText": "实验室管理系统",
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "tabBar": {
+    "color": "#999",
+    "position": "bottom",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#000000",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "icon/文件.png",
-        "selectedIconPath": "icon/right.png"
+        "iconPath": "icon/首页.png",
+        "selectedIconPath": "icon/首页2.png"
       },
       {
-        "pagePath": "pages/tools/tools",
-        "text": "工具",
-        "iconPath": "icon/编辑.png",
-        "selectedIconPath": "icon/right.png"
+        "pagePath": "pages/tool/tool",
+        "text": "分类",
+        "iconPath": "icon/分类.png",
+        "selectedIconPath": "icon/分类2.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "icon/mine.png",
-        "selectedIconPath": "icon/right.png"
+        "text": "设置",
+        "iconPath": "icon/1设置.png",
+        "selectedIconPath": "icon/2设置.png"
       }
-    ],
-    "selectedColor": "#0094ff"  
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",

@@ -1,23 +1,79 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!-- 
+  1.轮播图外层容器 swiper 
+  2.每一个轮播项 swiper-item
+  3.先找原图的宽度高度 等比例给swiper定宽度高度
+-->
+<view class="fun_title">
+  <text class="delimiter">/ </text>
+  <view class="title">功能专区</view>
+  <text class="delimiter"> /</text>
+</view>
+<view class="whole">
+  <!-- 扫码按钮 -->
+  <!-- 仪器租借信息 -->
+  <view class="equ">
+    <view class="scancode" bindtap="click">
+      <view class="icon_front iconfont icon-saoma"></view>
+      <view class="scantext">扫码获取</view>
+      
+    </view>
+    <navigator open-type="switchTab" url="/pages/tool/tool">
+      <view class="icon_front iconfont icon-shebeizujieguanli"></view>
+      <view class="zutext">租借器材</view>
+    </navigator>
+    <navigator open-type="navigate" url="/pages/cart/cart">
+      <view class="icon_front iconfont icon-guihuan"></view>
+      <view class="zutext">归还器材</view>
+    </navigator>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</view>
+<view class="fun_title">
+  <text class="delimiter">/ </text>
+  <view class="title">设备专区</view>
+  <text class="delimiter"> /</text>
+</view>
+<view>
+  <!-- 轮播图开始 -->
+  <view class="index_swiper">
+    <!-- 
+      1. swiper标签存在默认的宽度和高度
+        100% * 150px
+      2.image标签也存在默认的宽度和高度
+        320px*240px
+      3 设计图片和轮播图
+        1 先看一下原图的宽高 456*608
+        2 让图片的高度自适应 宽度等于100%
+        3 让swiper标签的高度 变成和图片的高一样
+      4 图片标签
+        mode属性 渲染模式
+          widthFix  让图片的标签宽高 和图片标签的内容的宽高都等比例的发生变化
+     -->
+    <swiper autoplay indicator-dots circular>
+      <swiper-item
+      wx:for="{{swiperList}}"
+      wx:key="id">
+        <navigator url="/pages/goods_detail/index?id={{item.id}}">
+          <image mode="scaleToFill" src="{{item.image_src}}" ></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
   </view>
+  <!-- 轮播图结束 -->
+</view>
+<view class="fun_title">
+  <text class="delimiter">/ </text>
+  <view class="title">分类导航</view>
+  <text class="delimiter"> /</text>
+</view>
+<view class="floor_main">
+<!-- 楼层导航 -->
+  <view class="floor_content"
+  wx:for="{{floorList}}"
+  wx:key="name">
+    <navigator open-type="switchTab" url="/pages/tool/tool">
+      <image mode="widthFix"  src="{{item.floor_src}}"></image>
+      <view class="floor_pic"> {{item.floor_name}}</view>
+    </navigator>
+  </view>
+    
 </view>

@@ -1,0 +1,49 @@
+page {
+  height: 100%;
+}
+.cates {
+  height: 100%;
+}
+.cates .cates_container {
+  height: calc( 100vh - 100rpx );
+  display: flex;
+}
+.cates .cates_container .left_menu {
+  flex: 2;
+}
+.cates .cates_container .left_menu .menu_item {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.cates .cates_container .left_menu .active {
+  color: var(--themeColor);
+  border-left: 5rpx solid currentColor;
+}
+.cates .cates_container .right_content {
+  flex: 5;
+}
+.cates .cates_container .right_content .good_box {
+  margin-top: 20rpx;
+}
+.cates .cates_container .right_content .good_box .good_title {
+  height: 50rpx;
+  padding: 0 10rpx;
+}
+.cates .cates_container .right_content .good_box .good_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cates .cates_container .right_content .good_box .good_list navigator {
+  width: 100%;
+  text-align: center;
+}
+.cates .cates_container .right_content .good_box .good_list navigator image {
+  width: 80%;
+}
+.cates .cates_container .right_content .good_box .good_list navigator .good_name {
+  font-size: 40rpx;
+  font-weight: 600;
+}

@@ -1,0 +1,58 @@
+<!-- 工具栏内容 -->
+<view class="cart_content">
+  <view class="cart_title">工具栏</view>
+  <view class="cart_main">
+  <!-- 当cart长度不为0的时候 -->
+    <block wx:if="{{cart.length!==0}}">
+      <view class="cart_item"
+      wx:for="{{cart}}"
+      wx:key="id"
+      >
+    <!-- 复选框 -->
+    <view class="cart_chk_wrap">
+      <checkbox-group data-id="{{item.id}}" bindchange="handleItemChange">
+        <checkbox checked="{{item.checked}}"></checkbox>
+      </checkbox-group>
+    </view>
+    <!-- 图片 -->
+    <navigator class="cart_img_wrap">
+      <image mode="widthFix" src="{{item.imageurl}}"></image>
+    </navigator>
+    <!-- 详细信息 -->
+    <view class="cart_info_wrap">
+      <view class="good_name">{{item.name}}</view>
+      <view class="good_price_wrap">
+        <view class="good_price">{{item.description}}</view>
+        <view class="cart_num_tool">
+          <view class="num_edit"> </view>
+          <view class="good_num">1</view>
+          <view class="num_edit"> </view>
+        </view>
+      </view>
+    </view>
+    </view>
+    </block>
+    <block wx:else>
+      <image mode="widthFix" src="https://s3.bmp.ovh/imgs/2022/02/f99dc20bae289329.gif"></image>
+    </block>
+  </view>
+</view>
+
+<!-- 底部工具栏 -->
+<view class="too_foot">
+  <!--  全选 -->
+  <view class="allchk">
+    <checkbox-group bindchange="handleItemAllchecked">
+      <checkbox checked="{{allchecked}}">全选</checkbox>
+    </checkbox-group>
+  </view>
+  <!-- 总工具数 -->
+  <view class="total_num">
+    <view class="total_price">
+      合计：<text class="total_price_text">{{totalNum}}个</text>
+    </view>
+    <view>(请按时归还)</view>
+  </view>
+  <!-- 结算 -->
+  <view class="order_pay" bindtap="handlePay">归还</view>
+</view>

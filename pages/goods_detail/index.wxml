@@ -1,0 +1,41 @@
+<!-- 轮播图开始 -->
+<view class="detail" bindtap="handleImage">
+  <image mode="widthFix" src="{{equipObj.imageurl}}"></image>
+</view>
+<!-- 轮播图结束 -->
+
+<!--  -->
+<view>
+  <view class="goods_num"
+    wx:if="{{!equipObj.used}}">可被借用</view>
+  <view class="goods_num1"
+    wx:else>不可借用</view>
+</view>
+<view class="goods_name_row">
+  <view class="goods_name">{{equipObj.name}}</view>
+  <view class="goods_collect" bindtap="handleCollect">
+    <text class="iconfont {{isCollect?'icon-shoucang1':'icon-shoucang'}}"></text>
+    <view class="collect_text">收藏</view>
+  </view>
+</view>
+
+<view class="btm_tool">
+  <view class="tool_item">
+    <view class="iconfont icon-dingdan"></view>
+    <view>客服</view>
+    <button open-type="contact"></button>
+  </view>
+  <view class="tool_item">
+    <view class="iconfont icon-dingdan"></view>
+    <view>分享</view>
+    <button open-type="share"></button>
+  </view>
+  <navigator url="/pages/cart/cart" class="tool_item">
+    <view class="iconfont icon-dingdan"></view>
+    <view>工具栏</view>
+    <button></button>
+  </navigator>
+  <view class="tool_item {{equipObj.used?'btn_cart1':'btn_cart'}}" bindtap="handleCart">
+    加入工具栏
+  </view>
+</view>

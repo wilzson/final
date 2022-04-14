@@ -1,5 +1,5 @@
 /**app.wxss**/
-.container {
+/* .container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -7,4 +7,17 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}  */
+@import "./styles/iconfont.wxss";
+
+/*主题颜色 通过变量来实现*/
+page{
+  /* 定义主题颜色 */
+  --themeColor: #eb4450;
+  /* 定义统一的字体大小 */
+  font-size: 38rpx;
+}
+
+image{
+  width: 100%;
+}

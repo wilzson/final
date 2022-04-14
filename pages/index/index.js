@@ -4,45 +4,72 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    // 轮播图数组
+    swiperList:[],
+    test_id:0,
+    // 楼层数组
+    floorList:[]
   },
-  // 事件处理函数
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  // 提交数据到Java后台
+  click: function () {
+    var that = this;
+    var show;
+    wx.scanCode({
+      success: (res) => {
+        this.test_id = res.result;
+        console.log(this.test_id);
+        that.setData({
+          test_id: this.test_id
+        })
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+        // wx.navigateTo({
+        //   url: '/pages/goods_detail/index?id=' + this.test_id,
+        // })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '失败',
+          icon: 'none',
+          duration: 2000
+        })
+      },
     })
-  },
+    },
   onLoad() {
+    // 发送异步请求
+    wx.request({
+      url: 'http://localhost:80/lunbo',
+      success:(res)=>{
+        console.log(res);
+        this.setData({
+          swiperList:res.data
+        })
+        
+      }
+    })
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
+    wx.request({
+      url: 'http://localhost:80/floor',
+      success:(res)=>{
+        console.log(res);
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          floorList:res.data
         })
       }
     })
   },
+  getUserProfile(e) {
+    
+  },
   getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    
   }
 })

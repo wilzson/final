@@ -1,2 +1,60 @@
-<!--pages/mine/mine.wxml-->
-<view>{{msg}}</view>
+<view class="user_info_wrap">
+  <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
+    <image class="user_bg" src="{{userinfo.avatarUrl}}"/>
+    <view class="user_info">
+      <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+      <view class="user_name">{{userinfo.nickName}}</view>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <navigator url="../login/login">
+      登录
+    </navigator>
+  </view>
+</view>
+<view class="user_content">
+  <view class="user_main">
+    <!-- 历史足迹 -->
+    <view class="history_wrap">
+      <navigator  url="/pages/collect/collect">
+        <view class="his_num">{{collectLength}}</view>
+        <view class="his_name">收藏的器材</view>
+      </navigator>
+      <navigator>
+        <view class="his_num">0</view>
+        <view class="his_name">我的足迹</view>
+      </navigator>
+    </view>
+    <!-- 已租借器材 -->
+    <view class="orders_wrap">
+      <view class="orders_title">已租借器材</view>
+      <view class="orders_content">
+        <navigator>
+          <view class="icon_front iconfont icon-dingdan"></view>
+          <view class="order_name">全部器材</view>
+        </navigator>
+        <navigator>
+          <view class="icon_front iconfont icon-dingdanyichenggong"></view>
+          <view class="order_name">租借器材</view>
+        </navigator>
+        <navigator>
+          <view class="icon_front iconfont icon-qitadingdan"></view>
+          <view class="order_name">已返还器材</view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 应用信息相关 -->
+    <view class="app_info_wrap">
+      <view class="app_info_item contact">
+        <text>联系客服</text>
+        <text>400-618-4000</text>
+      </view>
+      <view class="app_info_item">意见反馈</view>
+      <view class="app_info_item">关于我们</view>
+    </view>
+    <!-- 推荐 -->
+    <view class="recommeng_wrap">
+      把这个应用推荐给其他人
+    </view>
+  </view>
+</view>

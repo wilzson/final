@@ -1,19 +1,66 @@
-/**index.wxss**/
-.userinfo {
+.fun_title {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--themeColor);
+}
+.whole .equ {
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.whole .equ .scancode {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  color: #aaa;
 }
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.whole .equ .scancode .icon_front {
+  color: var(--themeColor);
+  size: 100;
 }
-
-.usermotto {
-  margin-top: 200px;
+.whole .equ .scancode .scantext {
+  padding-top: 20rpx;
+  font-size: 40rpx;
+}
+.whole .equ navigator {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.whole .equ navigator .icon_front {
+  color: var(--themeColor);
+  size: 100;
+}
+.whole .equ navigator .zutext {
+  padding-top: 20rpx;
+  font-size: 40rpx;
+}
+.index_swiper {
+  margin-top: 30rpx;
+}
+.index_swiper swiper {
+  height: 608rpx;
+}
+.index_swiper swiper image {
+  padding-left: 20rpx;
+  width: 95%;
+  justify-content: center;
+}
+.floor_main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.floor_main .floor_content {
+  width: 50%;
+}
+.floor_main .floor_content navigator {
+  padding-top: 20rpx;
+  text-align: center;
+}
+.floor_main .floor_content navigator image {
+  width: 80%;
 }

@@ -1,0 +1,40 @@
+<!--pages/tools/tools.wxml-->
+<!-- <text>pages/tools/tools.wxml</text> -->
+<!-- text相当于web中的span元素，是行内元素，是不会换行 -->
+<!-- view相当于div，是块内元素 会换行 -->
+<!-- 
+  1. 需要点击能查看当前空闲的工具，通过事件绑定
+  绑定关键字 bindinput
+ -->
+
+<view class="cates">
+  <!-- 搜索框开始 -->
+    <SearchInput></SearchInput>
+  <!-- 搜索框结束 -->
+  <view class="cates_container">
+    <!-- 左侧菜单 -->
+    <scroll-view scroll-y class="left_menu">
+      <view 
+      class="menu_item {{index===currentIndex?'active':''}}" 
+      wx:for="{{leftMenuList}}" 
+      wx:key="*this" 
+      bindtap = "handleItemTap" data-index="{{index}}" >
+        {{item}}
+      </view>
+    </scroll-view>
+    <!-- 右侧商品内容 -->
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right_content">
+      <view class="good_box" 
+      wx:for="{{rightContent}}"
+      wx:key="id">
+        <!-- <view class="good_title">{{item.description}}</view> -->
+        <view class="good_list">
+          <navigator url="/pages/goods_detail/index?id={{item.id}}">
+            <image mode="widthFix" src="{{item.imageurl}}"></image>
+            <view class="good_name">{{item.name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
