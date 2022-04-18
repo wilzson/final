@@ -29,7 +29,7 @@ Page({
   getData:function(id) {
     var that = this;
     wx.request({
-      url: 'http://localhost:80/equipment',
+      url: 'http://120.76.42.81:8089/equipment',
       data:{
         id
       },
@@ -71,7 +71,7 @@ Page({
     }
     console.log("gouwuche");
     wx.request({
-      url: 'http://localhost:80/setused',
+      url: 'http://120.76.42.81:8089/setused',
       data:{
         id:this.data.equipObj.id
       },
@@ -106,7 +106,7 @@ Page({
   },
   handleUpdata() {
     wx.request({
-      url: 'http://localhost:80/setused',
+      url: 'http://120.76.42.81:8089/setused',
       data:{
         id:this.data.equipObj.id
       },

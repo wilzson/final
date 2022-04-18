@@ -19,7 +19,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://localhost:80/getSearchContent',
+      url: 'http://120.76.42.81:8089/getSearchContent',
       data:{
         str:that.data.searchContent
       },

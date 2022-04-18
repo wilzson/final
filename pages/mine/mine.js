@@ -12,7 +12,7 @@ Page({
     this.setData({userinfo});
     // 获取收藏夹信息
     wx.request({
-      url: 'http://localhost/getCollectContent',
+      url: 'http://120.76.42.81:8089/getCollectContent',
       data:{
         username:that.data.userinfo.nickName
       },

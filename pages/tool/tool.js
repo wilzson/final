@@ -76,7 +76,7 @@ Page({
   getCates:function(){
     var that = this;
     wx.request({
-      url: 'http://localhost:80/category',
+      url: 'http://120.76.42.81:8089/category',
       success(res) {
         // console.log(res);
         console.log(1);

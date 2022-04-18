@@ -42,7 +42,7 @@ Page({
   onLoad() {
     // 发送异步请求
     wx.request({
-      url: 'http://localhost:80/lunbo',
+      url: 'http://120.76.42.81:8089/lunbo',
       success:(res)=>{
         console.log(res);
         this.setData({
@@ -57,7 +57,7 @@ Page({
       })
     }
     wx.request({
-      url: 'http://localhost:80/floor',
+      url: 'http://120.76.42.81:8089/floor',
       success:(res)=>{
         console.log(res);
         this.setData({

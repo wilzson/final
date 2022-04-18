@@ -76,7 +76,7 @@ Page({
       })
     }
     wx.request({
-      url: 'http://localhost:80/setEquipUsedBack',
+      url: 'http://120.76.42.81:8089/setEquipUsedBack',
       data:{
         cart:that.data.cart
       },
